@@ -1,14 +1,14 @@
 ﻿// Показать двумерный массив размером m×n заполненный вещественными числами
 
-int[,] CreateMatrix(int length, int width, int left, int right)
+double[,] CreateMatrix(int length, int width, int left, int right)
 {
     Random rand= new Random();
-    int[,] matrix = new int [length, width];
+    double[,] matrix = new double [length, width];
     for (int i = 0; i < matrix.GetLength(0) ; i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            matrix[i,j] = rand.Next(left,right);
+            matrix[i,j] = rand.Next(left,right) + rand.NextDouble();
         }
     }
     return matrix;
@@ -16,7 +16,7 @@ int[,] CreateMatrix(int length, int width, int left, int right)
 }
 
 
-void PrintMatrix(int[,] matrix)
+void PrintMatrix(double[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -39,6 +39,7 @@ int width = ReadInt("Enter amount of columns n: ");
 int left = ReadInt("Enter left side elements: ");
 int right = ReadInt("Enter right side elements: ");
 
-int[,] matrix = CreateMatrix(length,width,left, right);
+double[,] matrix = CreateMatrix(length,width,left, right);
 Console.WriteLine("Your matrix: ");
 PrintMatrix(matrix);
+
